@@ -20,7 +20,7 @@ jobs:
           java-version: '17'
           distribution: 'adopt'
       - name: Build with Maven
-        run: mvn -Pnative spring-boot:build-image
+        run: mvn -Pnative spring-boot:build-image -Dspring-boot.build-image.imageName=polinchw/demo:latest
 
 
       # - name: Build and push Docker image
