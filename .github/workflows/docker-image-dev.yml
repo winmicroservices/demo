@@ -1,0 +1,31 @@
+name: Docker Image CI for Dev
+
+on:
+  push:
+    branches:
+      - 'Graal**'
+#  pull_request:
+#    branches:
+#      - 'dev**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up JDK 11
+        uses: actions/setup-java@v3
+        with:
+          java-version: '11'
+          distribution: 'adopt'
+      - name: Build with Maven
+        run: -Pnative spring-boot:build-image
+
+
+      # - name: Build and push Docker image
+      #   uses: docker/build-push-action@v2
+      #   with:
+      #     context: .
+      #     push: true
+      #     tags: polinchw/hello-github-webhook:${{ steps.vars.outputs.short_ref }}
