@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - 'Graal**'
-#  pull_request:
-#    branches:
-#      - 'dev**'
 
 jobs:
   build:
@@ -28,11 +25,3 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
       - name: Push Docker Image
         run: docker push polinchw/demo:latest
-
-
-      # - name: Build and push Docker image
-      #   uses: docker/build-push-action@v2
-      #   with:
-      #     context: .
-      #     push: true
-      #     tags: polinchw/hello-github-webhook:${{ steps.vars.outputs.short_ref }}
