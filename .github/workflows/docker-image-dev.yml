@@ -20,7 +20,7 @@ jobs:
           java-version: '17'
           distribution: 'adopt'
       - name: Build with Maven
-        run: mvn -Pnative spring-boot:build-image -Dspring-boot.build-image.imageName=polinchw/demo:${{ steps.vars.outputs.short_ref }}
+        run: mvn spring-boot:build-image -Dspring-boot.build-image.imageName=polinchw/demo:${{ steps.vars.outputs.short_ref }}
       - name: Log in to Docker Hub
         uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
         with:
