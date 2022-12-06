@@ -3,7 +3,7 @@ name: Docker Image CI for Dev
 on:
   push:
     branches:
-      - 'Graal**'
+      - 'dev**'
 
 jobs:
   build:
