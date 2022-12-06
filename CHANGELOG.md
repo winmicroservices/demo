@@ -1,3 +1,12 @@
+# [2.0.0](https://github.com/winmicroservices/demo/compare/v1.0.0...v2.0.0) (2022-12-06)
+
+
+### Bug Fixes
+
+* The change log is randomly breaking [#17](https://github.com/winmicroservices/demo/issues/17).  Upgrading the change log to version 3.18.0. ([574dc84](https://github.com/winmicroservices/demo/commit/574dc846807154fee342e9adfa3b2b9b24a95de6))
+
+
+
 # [1.0.0](https://github.com/winmicroservices/demo/compare/v0.1.1...v1.0.0) (2022-12-06)
 
 
