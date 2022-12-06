@@ -28,7 +28,7 @@ jobs:
 
       - name: Conventional Changelog Action
         id: changelog
-        uses: TriPSs/conventional-changelog-action@v3.7.1
+        uses: TriPSs/conventional-changelog-action@v3.18.0
         with:
           github-token: ${{ secrets.CHANGELOG_RELEASE }}
           tag-prefix: 'v'
@@ -42,7 +42,11 @@ jobs:
       - name: Print new version 
         run: echo ${{ steps.changelog.outputs.version }}
 
+      - name: Print new tag
+        run: echo ${{ steps.changelog.outputs.tag }}
+
       - name: Build with Maven
+        if: ${{ steps.changelog.outputs.skipped == 'false' }}
         run: mvn -Pnative spring-boot:build-image -Dspring-boot.build-image.imageName=polinchw/demo:${{ steps.changelog.outputs.version }}
 
       - name: Create Release
@@ -58,4 +62,5 @@ jobs:
 
       - name: Push Docker Image
         id: docker-push
+        if: ${{ steps.changelog.outputs.skipped == 'false' }}
         run: docker push polinchw/demo:${{ steps.changelog.outputs.version }}
