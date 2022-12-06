@@ -1,3 +1,12 @@
+# [1.0.0](https://github.com/winmicroservices/demo/compare/v0.1.1...v1.0.0) (2022-12-06)
+
+
+### Bug Fixes
+
+* Debug build issue. [#13](https://github.com/winmicroservices/demo/issues/13) ([1c79d75](https://github.com/winmicroservices/demo/commit/1c79d75194e2c0d38d47371382409be79a191f00))
+
+
+
 ## [0.1.1](https://github.com/winmicroservices/demo/compare/v0.1.0...v0.1.1) (2022-12-06)
 
 
