@@ -39,6 +39,9 @@ jobs:
           java-version: '17'
           distribution: 'adopt'
 
+      - name: Print new version 
+        run: echo ${{ steps.changelog.outputs.version }}
+
       - name: Build with Maven
         run: mvn spring-boot:build-image -Dspring-boot.build-image.imageName=polinchw/demo:${{ steps.changelog.outputs.version }}
 
