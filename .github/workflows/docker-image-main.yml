@@ -43,7 +43,7 @@ jobs:
         run: echo ${{ steps.changelog.outputs.version }}
 
       - name: Build with Maven
-        run: mvn spring-boot:build-image -Dspring-boot.build-image.imageName=polinchw/demo:${{ steps.changelog.outputs.version }}
+        run: mvn -Pnative spring-boot:build-image -Dspring-boot.build-image.imageName=polinchw/demo:${{ steps.changelog.outputs.version }}
 
       - name: Create Release
         uses: actions/create-release@v1
