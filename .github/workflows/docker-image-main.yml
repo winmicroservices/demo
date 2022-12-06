@@ -48,4 +48,4 @@ jobs:
           body: ${{ steps.changelog.outputs.clean_changelog }}
       - name: Push Docker Image
         id: docker-push
-        run: docker push polinchw/demo:{{ steps.changelog.outputs.version }}
+        run: docker push polinchw/demo:${{ steps.changelog.outputs.version }}
