@@ -1,3 +1,17 @@
+## [2.0.1](https://github.com/winmicroservices/demo/compare/v2.0.0...v2.0.1) (2022-12-08)
+
+
+### Bug Fixes
+
+* [#19](https://github.com/winmicroservices/demo/issues/19) Add dependency for main pipeline. ([b015e08](https://github.com/winmicroservices/demo/commit/b015e0851776671a2db5e05c9994110879871c60))
+* [#19](https://github.com/winmicroservices/demo/issues/19) Add dependency to the test job. ([67c98e1](https://github.com/winmicroservices/demo/commit/67c98e1e075dfbfc994438a3d5b5e68f0ebbfa16))
+* [#19](https://github.com/winmicroservices/demo/issues/19) Add some tests. ([f18f940](https://github.com/winmicroservices/demo/commit/f18f940efb69d7eb1b1da87ec915a6314d223e9c))
+* [#19](https://github.com/winmicroservices/demo/issues/19) Set up jdk 17 in the dev build pipeline. ([0989af9](https://github.com/winmicroservices/demo/commit/0989af90b1dd7e725902e0e5886bbe61d89eddd9))
+* [#19](https://github.com/winmicroservices/demo/issues/19) The test works locally. ([672af9e](https://github.com/winmicroservices/demo/commit/672af9e78879e224607a1d01ab67e17dddeea893))
+* Add some unit tests [#19](https://github.com/winmicroservices/demo/issues/19) ([2242389](https://github.com/winmicroservices/demo/commit/2242389e59180e941a853d078ce542c4ed8bf9c2))
+
+
+
 # [2.0.0](https://github.com/winmicroservices/demo/compare/v1.0.0...v2.0.0) (2022-12-06)
 
 
