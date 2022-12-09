@@ -14,7 +14,28 @@ variables:
   buildStdConfigMap: true
 
 stages:
+- stage: Test
+  jobs:
+  - job: Maven_Test
+    displayName: 'Maven Build'
+    pool:
+      name: ${{variables.pool}}
+      demands:
+      - maven
+      - JAVA_HOME_${{variables.javaVersion}}_X64
+    steps:
+    - task: Maven@3
+      inputs:
+        mavenPomFile: 'pom.xml'
+        mavenOptions: '-Xmx3072m -Dspring-boot.build-image.imageName=${{variables.containerRegistry}}/${{variables.dockerRepo}}:latest'
+        javaHomeOption: 'JDKVersion'
+        jdkVersionOption: '1.17'
+        jdkArchitectureOption: 'x64'
+        publishJUnitResults: true
+        testResultsFiles: '**/TEST-*.xml'
+        goals: 'test'
 - stage: Build
+  dependsOn: [Test]
   variables:
     env: dev
   displayName: 'Java build and deploy ${{variables.env}}'
@@ -25,7 +46,6 @@ stages:
       name: ${{variables.pool}}
       demands:
       - maven
-      # - docker
       - JAVA_HOME_${{variables.javaVersion}}_X64
     steps:
     - task: Maven@3
