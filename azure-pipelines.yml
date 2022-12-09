@@ -46,7 +46,7 @@ stages:
         testResultsFiles: '**/TEST-*.xml'
         goals: '-Pnative spring-boot:build-image'
     - task: Docker@2
-      displayName: 'Docker buildAndPush'
+      displayName: 'Docker Push Image'
       inputs:
         containerRegistry: ${{variables.dockerSvcConn}}
         repository: ${{variables.dockerRepo}}
