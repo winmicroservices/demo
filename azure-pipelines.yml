@@ -1,5 +1,8 @@
 trigger:
-- deploy-on-azure
+  branches:
+    include:
+    - master
+    - deploy*
 
 #Setup the variables used by the build, publish and deployment
 variables:
