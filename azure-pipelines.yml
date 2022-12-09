@@ -17,7 +17,7 @@ stages:
 - stage: Test
   jobs:
   - job: Maven_Test
-    displayName: 'Maven Build'
+    displayName: 'Maven Test'
     pool:
       name: ${{variables.pool}}
       demands:
