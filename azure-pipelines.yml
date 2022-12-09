@@ -45,28 +45,10 @@ stages:
         publishJUnitResults: true
         testResultsFiles: '**/TEST-*.xml'
         goals: '-Pnative spring-boot:build-image'
-
-- stage: Push Docker Image
-  variables:
-    env: dev
-    # host: ms-dev.windstream.com
-    # clusterName: aks08-dev-scus
-    # adoEnv: '${{variables.clusterName}}-${{variables.namespaceRoot}}-${{variables.env}}.${{variables.namespaceRoot}}-${{variables.env}}'
-  displayName: 'Build and deploy ${{variables.env}}'
-  jobs:
-  - job: Push${{variables.env}}
-    displayName: 'Push Image ${{variables.env}}'
-    pool:
-      name: ${{variables.pool}}
-      demands:
-      - docker
-    steps:
-    - template: istio-build-steps.yaml@templates
-      parameters:
+    - task: Docker@2
+      displayName: 'Docker buildAndPush'
+      inputs:
+        containerRegistry: ${{variables.dockerSvcConn}}
+        repository: ${{variables.dockerRepo}}
         command: 'push'
-        serviceName: ${{variables.serviceName}}
-        dockerRepo: ${{variables.dockerRepo}}
-        dockerTag: 'latest'
-        dockerSvcConn: ${{variables.dockerSvcConn}}
-        # dockerOnly: ${{variables.dockerOnly}}
-        # buildStdConfigMap: ${{variables.buildStdConfigMap}}
+        Tags: 'latest'
