@@ -13,13 +13,6 @@ variables:
   dockerOnly: false
   buildStdConfigMap: true
 
-#Reference and invoke the templated build.
-resources:
-  repositories:
-    - repository: templates
-      type: git
-      name: Process/k8s-common-build-templates
-
 stages:
 - stage: BuildAndDeployDev
   variables:
