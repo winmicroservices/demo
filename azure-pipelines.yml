@@ -14,7 +14,7 @@ variables:
   buildStdConfigMap: true
 
 stages:
-- stage: BuildAndDeployDev
+- stage: Build
   variables:
     env: dev
   displayName: 'Java build and deploy ${{variables.env}}'
