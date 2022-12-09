@@ -9,7 +9,7 @@ variables:
   containerRegistry: winacr02.azurecr.io
   dockerSvcConn: winacr02
   dockerRepo: k8s-common/ado-data
-  javaVersion: "17"
+  javaVersion: "1.17"
   dockerOnly: false
   buildStdConfigMap: true
 
@@ -21,7 +21,6 @@ resources:
       name: Process/k8s-common-build-templates
 
 stages:
-
 - stage: BuildAndDeployDev
   variables:
     env: dev
@@ -39,9 +38,9 @@ stages:
     - task: Maven@3
       inputs:
         mavenPomFile: 'pom.xml'
-        mavenOptions: '-Xmx3072m'
+        mavenOptions: '-Xmx3072m -Dspring-boot.build-image.imageName=winacr02.azurecr.io/k8s-common/cert-automation:latest'
         javaHomeOption: 'JDKVersion'
-        jdkVersionOption: '1.17'
+        jdkVersionOption: '${{variables.pool}}'
         jdkArchitectureOption: 'x64'
         publishJUnitResults: true
         testResultsFiles: '**/TEST-*.xml'
