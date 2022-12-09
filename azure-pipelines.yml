@@ -8,7 +8,7 @@ variables:
   pool: 'K8S-Common-Pipeline' 
   containerRegistry: winacr02.azurecr.io
   dockerSvcConn: winacr02
-  dockerRepo: k8s-common/ado-data
+  dockerRepo: k8s-common/demo
   javaVersion: "17"
   dockerOnly: false
   buildStdConfigMap: true
@@ -38,7 +38,7 @@ stages:
     - task: Maven@3
       inputs:
         mavenPomFile: 'pom.xml'
-        mavenOptions: '-Xmx3072m -Dspring-boot.build-image.imageName=winacr02.azurecr.io/k8s-common/cert-automation:latest'
+        mavenOptions: '-Xmx3072m -Dspring-boot.build-image.imageName=${{variables.containerRegistry}}/${{variables.dockerRepo}}:latest'
         javaHomeOption: 'JDKVersion'
         jdkVersionOption: '1.17'
         jdkArchitectureOption: 'x64'
