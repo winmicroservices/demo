@@ -1,0 +1,46 @@
+trigger:
+- deploy-on-azure
+
+#Setup the variables used by the build, publish and deployment
+variables:
+  pool: 'K8S-Common-Pipeline' 
+  containerRegistry: winacr02.azurecr.io
+  dockerSvcConn: winacr02
+  dockerRepo: k8s-common/ado-data
+  javaVersion: "17"
+  dockerOnly: false
+  buildStdConfigMap: true
+
+#Reference and invoke the templated build.
+resources:
+  repositories:
+    - repository: templates
+      type: git
+      name: Process/k8s-common-build-templates
+
+stages:
+
+- stage: BuildAndDeployDev
+  variables:
+    env: dev
+  displayName: 'Java build and deploy ${{variables.env}}'
+  jobs:
+  - job: Maven_Build
+    displayName: 'Maven Build'
+    pool:
+      name: ${{variables.pool}}
+      demands:
+      - maven
+      # - docker
+      - JAVA_HOME_${{variables.javaVersion}}_X64
+    steps:
+    - task: Maven@3
+      inputs:
+        mavenPomFile: 'pom.xml'
+        mavenOptions: '-Xmx3072m'
+        javaHomeOption: 'JDKVersion'
+        jdkVersionOption: '1.8'
+        jdkArchitectureOption: 'x64'
+        publishJUnitResults: true
+        testResultsFiles: '**/TEST-*.xml'
+        goals: 'package'
