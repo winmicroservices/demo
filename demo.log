@@ -215,3 +215,9 @@ Caused by: java.lang.ClassNotFoundException: org.hibernate.boot.model.naming.Cam
 	at java.base/java.lang.ClassLoader.loadClass(Unknown Source) ~[na:na]
 	... 34 common frames omitted
 
+2022-12-20T09:33:06.840-05:00  INFO 126882 --- [main] com.example.demo.DemoApplicationTests    : Starting DemoApplicationTests using Java 17.0.5 with PID 126882 (started by polinchw in /home/polinchw/VSCodeProjects/k8s-common-msvc-examples)
+2022-12-20T09:33:06.841-05:00  INFO 126882 --- [main] com.example.demo.DemoApplicationTests    : No active profile set, falling back to 1 default profile: "default"
+2022-12-20T09:33:07.358-05:00  INFO 126882 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2022-12-20T09:33:07.358-05:00  INFO 126882 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2022-12-20T09:33:07.359-05:00  INFO 126882 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2022-12-20T09:33:07.374-05:00  INFO 126882 --- [main] com.example.demo.DemoApplicationTests    : Started DemoApplicationTests in 0.77 seconds (process running for 1.317)

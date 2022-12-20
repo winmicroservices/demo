@@ -34,3 +34,4 @@ build/
 .mvn/wrapper/maven-wrapper.jar
 mvnw.cmd
 .mvn/wrapper/maven-wrapper.properties
+demo.log
