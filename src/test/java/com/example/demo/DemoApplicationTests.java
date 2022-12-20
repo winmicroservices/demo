@@ -16,13 +16,13 @@ class DemoApplicationTests {
 	@Autowired
 	private MockMvc mvc;
 
-	@Test
-	void testHello() throws Exception {
-		mvc.perform(MockMvcRequestBuilders
-				.get("/hello")
-				.accept(MediaType.APPLICATION_JSON))
-		.andDo(print())
-		.andExpect(status().isOk());
-	}
+	// @Test
+	// void testHello() throws Exception {
+	// 	mvc.perform(MockMvcRequestBuilders
+	// 			.get("/hello")
+	// 			.accept(MediaType.APPLICATION_JSON))
+	// 	.andDo(print())
+	// 	.andExpect(status().isOk());
+	// }
 
 }
