@@ -33,6 +33,7 @@ public class RepositoryTests {
         Employee employee = new Employee();
         employee.setName("Bill");
         employee.setCity("Venice");
+        log.info("Saving employee %s",employee.getName());
         employeeRepository.save(employee);
         Employee founEmployee = employeeRepository.findByName("Bill");
         assertEquals(founEmployee.getName(), employee.getName());
