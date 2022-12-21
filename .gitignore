@@ -17,7 +17,7 @@ target/
 .idea
 *.iws
 *.iml
-*.ipr
+*.ipr 
 
 ### NetBeans ###
 /nbproject/private/
@@ -34,3 +34,4 @@ build/
 .mvn/wrapper/maven-wrapper.jar
 mvnw.cmd
 .mvn/wrapper/maven-wrapper.properties
+demo.log

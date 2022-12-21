@@ -1,0 +1,46 @@
+trigger:
+  branches:
+    include:
+    - '*'
+
+#Setup the variables used by the build, publish and deployment
+variables:
+  pool: 'K8S-Common-Pipeline' 
+  containerRegistry: winacr02.azurecr.io
+  dockerSvcConn: winacr02
+  dockerRepo: k8s-common/demo
+  javaVersion: "17"
+  dockerOnly: false
+  buildStdConfigMap: true
+
+stages:
+- stage: Build
+  variables:
+    env: dev
+  displayName: 'Java build and deploy ${{variables.env}}'
+  jobs:
+  - job: Maven_Build
+    displayName: 'Maven Build'
+    pool:
+      name: ${{variables.pool}}
+      demands:
+      - maven
+      - JAVA_HOME_${{variables.javaVersion}}_X64
+    steps:
+    - task: Maven@3
+      inputs:
+        mavenPomFile: 'pom.xml'
+        mavenOptions: '-Xmx3072m -Dspring-boot.build-image.imageName=${{variables.containerRegistry}}/${{variables.dockerRepo}}:latest'
+        javaHomeOption: 'JDKVersion'
+        jdkVersionOption: '1.17'
+        jdkArchitectureOption: 'x64'
+        publishJUnitResults: true
+        testResultsFiles: '**/TEST-*.xml'
+        goals: '-Pnative spring-boot:build-image'
+    - task: Docker@2
+      displayName: 'Docker Push Image'
+      inputs:
+        containerRegistry: ${{variables.dockerSvcConn}}
+        repository: ${{variables.dockerRepo}}
+        command: 'push'
+        Tags: 'latest'
