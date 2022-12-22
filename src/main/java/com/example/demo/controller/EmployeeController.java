@@ -16,7 +16,7 @@ import com.example.demo.model.Employee;
 import com.example.demo.rest.repository.EmployeeRepository;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping(value = "/api", produces = "application/hal+json")
 public class EmployeeController {
 
     private final static Logger log = LoggerFactory.getLogger(EmployeeController.class);
