@@ -5,10 +5,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
   
 // class can be mapped to a table
 @Table(name = "employee")
-@Entity 
+@Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Employee {
     
     // @ID This annotation specifies 
@@ -16,9 +19,10 @@ public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO) 
     private long id;
+
     private String name;
     private String city;
-  
+    
     public Employee() {
         super();
     }
@@ -26,6 +30,14 @@ public class Employee {
         super();
         this.name = name;
         this.city = city;
+    }
+
+    public long getId() {
+        return this.id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
   
     public String getName() {
@@ -43,5 +55,7 @@ public class Employee {
     public void setCity(String city) {
         this.city = city;
     }
+
+    
   
 }
