@@ -1,3 +1,12 @@
+## [2.1.3](https://github.com/winmicroservices/demo/compare/v2.1.2...v2.1.3) (2022-12-22)
+
+
+### Bug Fixes
+
+* Fix the get employee service [#23](https://github.com/winmicroservices/demo/issues/23) ([5039810](https://github.com/winmicroservices/demo/commit/503981027eea2fe535112066eeef1e58471ceaf5))
+
+
+
 ## [2.1.2](https://github.com/winmicroservices/demo/compare/v2.1.1...v2.1.2) (2022-12-21)
 
 
@@ -77,15 +86,6 @@
 ### Bug Fixes
 
 * The change log is randomly breaking [#17](https://github.com/winmicroservices/demo/issues/17).  Upgrading the change log to version 3.18.0. ([574dc84](https://github.com/winmicroservices/demo/commit/574dc846807154fee342e9adfa3b2b9b24a95de6))
-
-
-
-# [1.0.0](https://github.com/winmicroservices/demo/compare/v0.1.1...v1.0.0) (2022-12-06)
-
-
-### Bug Fixes
-
-* Debug build issue. [#13](https://github.com/winmicroservices/demo/issues/13) ([1c79d75](https://github.com/winmicroservices/demo/commit/1c79d75194e2c0d38d47371382409be79a191f00))
 
 
 
