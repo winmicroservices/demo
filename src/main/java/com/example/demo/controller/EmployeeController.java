@@ -39,12 +39,6 @@ public class EmployeeController {
         return employeeRepository.findAll();
     }
 
-    // @GetMapping("/employee/{id}")
-    // public Employee getEmployee(@PathVariable long id) {
-    //     Employee employee = employeeRepository.getReferenceById(id);
-    //     return employee;
-    // }
-
     @GetMapping("/employee/{id}")
     public EntityModel<Employee> retrieveEmployee(@PathVariable long id) throws Exception {
         Employee employee = employeeRepository.getReferenceById(id);
