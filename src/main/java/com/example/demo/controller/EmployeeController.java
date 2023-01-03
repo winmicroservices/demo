@@ -48,7 +48,7 @@ public class EmployeeController {
 
         EntityModel<Employee> resource = EntityModel.of(employee);
 
-        return EntityModel.of(employee, //
+        return EntityModel.of(employee, 
           linkTo(methodOn(EmployeeController.class).retrieveEmployee(id)).withSelfRel(),
           linkTo(methodOn(EmployeeController.class).retrieveAllEmployees()).withRel("employees"));
     }
