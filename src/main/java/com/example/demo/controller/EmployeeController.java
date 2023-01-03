@@ -22,7 +22,6 @@ import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 import com.example.demo.model.Employee;
 import com.example.demo.rest.repository.EmployeeRepository;
 
-import java.util.Optional;
 import java.util.List;
 
 @RestController
