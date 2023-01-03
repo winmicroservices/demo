@@ -38,6 +38,7 @@ public class EmployeeController {
         return employeeRepository.findAll();
     }
 
+
     @GetMapping("/employee/{id}")
     public EntityModel<Employee> retrieveEmployee(@PathVariable long id) throws Exception {
         Employee employee = employeeRepository.getReferenceById(id);
@@ -47,11 +48,9 @@ public class EmployeeController {
 
         EntityModel<Employee> resource = EntityModel.of(employee);
 
-        WebMvcLinkBuilder linkTo = linkTo(methodOn(this.getClass()).retrieveAllEmployees());
-
-        resource.add(linkTo.withRel("all-employees"));
-
-        return resource;
+        return EntityModel.of(employee, //
+          linkTo(methodOn(EmployeeController.class).retrieveEmployee(id)).withSelfRel(),
+          linkTo(methodOn(EmployeeController.class).retrieveAllEmployees()).withRel("employees"));
     }
 
     @RequestMapping(value = "/saveEmployee", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
