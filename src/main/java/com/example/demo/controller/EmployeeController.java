@@ -12,8 +12,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.EntityModel;
+import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
+
 import com.example.demo.model.Employee;
 import com.example.demo.rest.repository.EmployeeRepository;
+
+import java.util.Optional;
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "/api", produces = "application/hal+json")
@@ -24,10 +34,31 @@ public class EmployeeController {
     @Autowired
     EmployeeRepository employeeRepository;
 
+    @GetMapping("/employee")
+    public List<Employee> retrieveAllEmployees() {
+        return employeeRepository.findAll();
+    }
+
+    // @GetMapping("/employee/{id}")
+    // public Employee getEmployee(@PathVariable long id) {
+    //     Employee employee = employeeRepository.getReferenceById(id);
+    //     return employee;
+    // }
+
     @GetMapping("/employee/{id}")
-    public Employee getEmployee(@PathVariable long id) {
+    public EntityModel<Employee> retrieveEmployee(@PathVariable long id) throws Exception {
         Employee employee = employeeRepository.getReferenceById(id);
-        return employee;
+
+        if (employee == null)
+            throw new Exception("No id-" + id);
+
+        EntityModel<Employee> resource = EntityModel.of(employee);
+
+        WebMvcLinkBuilder linkTo = linkTo(methodOn(this.getClass()).retrieveAllEmployees());
+
+        resource.add(linkTo.withRel("all-employees"));
+
+        return resource;
     }
 
     @RequestMapping(value = "/saveEmployee", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
