@@ -24,7 +24,7 @@ class DemoApplicationMVCTests {
 	@Test
 	void testHello() throws Exception {
 		mvc.perform(MockMvcRequestBuilders
-				.get("/api/employee/1")
+				.get("/v1/api/employee/1")
 				.accept(MediaType.APPLICATION_JSON))
 		.andDo(print())
 		.andExpect(status().isNotFound());
