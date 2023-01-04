@@ -51,7 +51,7 @@ public class EmployeeController {
           linkTo(methodOn(EmployeeController.class).retrieveAllEmployees()).withRel("employees"));
     }
 
-    @RequestMapping(value = "/saveEmployee", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
+    @RequestMapping(value = "/employee/create", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
     public ResponseEntity < String > saveEmployee(@RequestBody Employee employee) {
         log.info("Saving employee {}",employee.getName());
         employeeRepository.save(employee);
