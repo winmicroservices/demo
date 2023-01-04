@@ -35,16 +35,19 @@ public class EmployeeController {
     @Autowired
     EmployeeRepository employeeRepository;
 
-    // @GetMapping("/employee")
-    // public List<Employee> retrieveAllEmployees() {
-    //     return employeeRepository.findAll();
-    // }
-
     @GetMapping("/employee")
     CollectionModel<EntityModel<Employee>> retrieveAllEmployees() {
         List<EntityModel<Employee>> items = employeeRepository.findAll().stream().map(item -> EntityModel.of(item,
                 linkTo(methodOn(EmployeeController.class).retrieveAllEmployees()).withRel("items")))
                 .collect(Collectors.toList());
+        for(EntityModel<Employee> em : items) {
+            Employee e = em.getContent();
+            try {
+                em.add(linkTo(methodOn(EmployeeController.class).retrieveEmployee(e.getId())).withSelfRel());
+            } catch (Exception e1) {
+                log.error(e1.getMessage());
+            }
+        }
         return CollectionModel.of(items, linkTo(methodOn(EmployeeController.class).retrieveAllEmployees()).withSelfRel());
     }
 
@@ -63,10 +66,8 @@ public class EmployeeController {
 
     @RequestMapping(value = "/employee/create", method = RequestMethod.POST, consumes = "application/json")
     public EntityModel<Employee> saveEmployee(@RequestBody Employee employee) throws Exception {
-        // TODO: Return what you would return on a get.
         log.info("Saving employee {}",employee.getName());
         Employee e = employeeRepository.save(employee);
         return retrieveEmployee(e.getId());
-        // return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 }

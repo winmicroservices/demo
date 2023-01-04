@@ -26,7 +26,7 @@ mvn -Pnative spring-boot:build-image
 This is a sample http POST for creating an employee.
 
 ```
-curl -X POST http://localhost:8080/api/employee/create \
+curl -X POST http://localhost:8080/v1/api/employee/create \
    -H 'Content-Type: application/json' \
    -d '{"name":"Bill Polinchak","city":"Venice"}'
 ```
@@ -36,5 +36,5 @@ curl -X POST http://localhost:8080/api/employee/create \
 This is a sample http GET for retreiving an employee.
 
 ```
-curl http://localhost:8080/api/employee/1
+curl http://localhost:8080/v1/api/employee/1
 ```
