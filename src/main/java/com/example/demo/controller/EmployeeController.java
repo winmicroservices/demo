@@ -35,10 +35,10 @@ public class EmployeeController {
     @Autowired
     EmployeeRepository employeeRepository;
 
-    @GetMapping("/employee")
+    @GetMapping("/employees")
     CollectionModel<EntityModel<Employee>> retrieveAllEmployees() {
         List<EntityModel<Employee>> items = employeeRepository.findAll().stream().map(item -> EntityModel.of(item,
-                linkTo(methodOn(EmployeeController.class).retrieveAllEmployees()).withRel("items")))
+                linkTo(methodOn(EmployeeController.class).retrieveAllEmployees()).withRel("employees")))
                 .collect(Collectors.toList());
         for(EntityModel<Employee> em : items) {
             Employee e = em.getContent();
