@@ -16,6 +16,7 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 
@@ -23,9 +24,10 @@ import com.example.demo.model.Employee;
 import com.example.demo.rest.repository.EmployeeRepository;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping(value = "/api", produces = "application/hal+json")
+@RequestMapping(value = "/v1/api", produces = "application/hal+json")
 public class EmployeeController {
 
     private final static Logger log = LoggerFactory.getLogger(EmployeeController.class);
@@ -36,6 +38,14 @@ public class EmployeeController {
     @GetMapping("/employee")
     public List<Employee> retrieveAllEmployees() {
         return employeeRepository.findAll();
+    }
+
+    @GetMapping("/employeeHatoes")
+    CollectionModel<EntityModel<Employee>> get() {
+        List<EntityModel<Employee>> items = employeeRepository.findAll().stream().map(item -> EntityModel.of(item,
+                linkTo(methodOn(EmployeeController.class).get()).withRel("items")))
+                .collect(Collectors.toList());
+        return CollectionModel.of(items, linkTo(methodOn(EmployeeController.class).get()).withSelfRel());
     }
 
 
@@ -53,6 +63,7 @@ public class EmployeeController {
 
     @RequestMapping(value = "/employee/create", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
     public ResponseEntity < String > saveEmployee(@RequestBody Employee employee) {
+        // TODO: Return what you would return on a get.
         log.info("Saving employee {}",employee.getName());
         employeeRepository.save(employee);
         return ResponseEntity.status(HttpStatus.CREATED).build();
