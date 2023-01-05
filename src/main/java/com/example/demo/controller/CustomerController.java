@@ -51,7 +51,7 @@ public class CustomerController {
             
         return EntityModel.of(employee, 
           linkTo(methodOn(CustomerController.class).retrieveCustomer(id)).withSelfRel(),
-          linkTo(methodOn(CustomerController.class).retrieveAllEmployees()).withRel("customers"));
+          linkTo(methodOn(CustomerController.class).fetchCustomersWithPageInterface("", "", 0, 5)).withRel("customers"));
     }
 
     @GetMapping("/api/v0/customers")
