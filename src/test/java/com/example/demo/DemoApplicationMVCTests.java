@@ -23,7 +23,7 @@ class DemoApplicationMVCTests {
 
 	@Test
 	void testCustomers() throws Exception {
-		mvc.perform(MockMvcRequestBuilders.get("/v1/api/customers")).andExpect(status().isOk());
+		mvc.perform(MockMvcRequestBuilders.get("/api/v0/customers")).andExpect(status().isOk());
 	}
 
 	@Test

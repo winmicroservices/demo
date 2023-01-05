@@ -23,14 +23,7 @@ public class Customer {
     private String firstName;
     private String lastName;
 
-    public String getLastName() {
-        return this.lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
+    
     private String city;
     
     public Customer() {
@@ -46,11 +39,11 @@ public class Customer {
     public long getId() {
         return this.id;
     }
-
+    
     public void setId(long id) {
         this.id = id;
     }
-  
+    
     public String getFirstName() {
         return firstName;
     }
@@ -58,15 +51,23 @@ public class Customer {
     public void setFirstName(String name) {
         this.firstName = name;
     }
-  
+    
+    public String getLastName() {
+        return this.lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
     public String getCity() {
         return city;
     }
-  
+    
     public void setCity(String city) {
         this.city = city;
     }
-
+    
     
   
 }

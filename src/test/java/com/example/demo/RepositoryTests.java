@@ -32,6 +32,7 @@ public class RepositoryTests {
     public void testCustomerInsert() throws Exception {
         Customer customer = new Customer();
         customer.setFirstName("Bill");
+        customer.setLastName("Polinchak");
         customer.setCity("Venice");
         log.info("Saving customer {}",customer.getFirstName());
         customerRepository.save(customer);
