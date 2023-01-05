@@ -7,5 +7,5 @@ import com.example.demo.model.Customer;
 
 public interface CustomerRepository extends JpaRepository<Customer, Long> {
 
-    public Customer findByName(@Param("name") String name);
+    public Customer findByFirstName(@Param("firstName") String firstName);
 }

@@ -31,12 +31,12 @@ public class RepositoryTests {
     @Test
     public void testCustomerInsert() throws Exception {
         Customer customer = new Customer();
-        customer.setName("Bill");
+        customer.setFirstName("Bill");
         customer.setCity("Venice");
-        log.info("Saving customer {}",customer.getName());
+        log.info("Saving customer {}",customer.getFirstName());
         customerRepository.save(customer);
-        Customer founEmployee = customerRepository.findByName("Bill");
-        assertEquals(founEmployee.getName(), customer.getName());
+        Customer founEmployee = customerRepository.findByFirstName("Bill");
+        assertEquals(founEmployee.getFirstName(), customer.getFirstName());
     }
 
 }

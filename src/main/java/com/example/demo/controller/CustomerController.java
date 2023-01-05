@@ -62,7 +62,7 @@ public class CustomerController {
 
     @RequestMapping(value = "/customer/create", method = RequestMethod.POST, consumes = "application/json")
     public EntityModel<Customer> saveCustomer(@RequestBody Customer customer) throws Exception {
-        log.info("Saving customer {}",customer.getName());
+        log.info("Saving customer {}",customer.getFirstName());
         Customer savedEmployee = customerRepository.save(customer);
         return retrieveCustomer(savedEmployee.getId());
     }

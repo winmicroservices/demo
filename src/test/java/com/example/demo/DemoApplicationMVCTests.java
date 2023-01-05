@@ -30,7 +30,7 @@ class DemoApplicationMVCTests {
 	public void createCustomer() throws Exception {
 		mvc.perform( MockMvcRequestBuilders
 				.post("/v1/api/customer/create")
-				.content(asJsonString(new Customer("Bill", "Venice")))
+				.content(asJsonString(new Customer("Bill", "Polinchak", "Venice")))
 				.contentType(MediaType.APPLICATION_JSON)
 				.accept(MediaType.APPLICATION_JSON))
 			.andExpect(status().is(406));

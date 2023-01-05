@@ -20,15 +20,26 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.AUTO) 
     private long id;
 
-    private String name;
+    private String firstName;
+    private String lastName;
+
+    public String getLastName() {
+        return this.lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
     private String city;
     
     public Customer() {
         super();
     }
-    public Customer(String name, String city) {
+    public Customer(String firstName, String lastName, String city) {
         super();
-        this.name = name;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.city = city;
     }
 
@@ -40,12 +51,12 @@ public class Customer {
         this.id = id;
     }
   
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
   
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String name) {
+        this.firstName = name;
     }
   
     public String getCity() {
