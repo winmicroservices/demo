@@ -29,11 +29,11 @@ class DemoApplicationMVCTests {
 	@Test
 	public void createCustomer() throws Exception {
 		mvc.perform( MockMvcRequestBuilders
-				.post("/v1/api/customer/create")
+				.post("/api/v1/customer/create")
 				.content(asJsonString(new Customer("Bill", "Polinchak", "Venice")))
 				.contentType(MediaType.APPLICATION_JSON)
 				.accept(MediaType.APPLICATION_JSON))
-			.andExpect(status().is(406));
+			.andExpect(status().is(200));
 	}
 
 

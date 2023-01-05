@@ -18,6 +18,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
+
 import com.example.demo.model.Customer;
 import com.example.demo.model.CustomerModel;
 import com.example.demo.service.CustomerService;
@@ -121,7 +124,7 @@ public class CustomerController {
             
         return EntityModel.of(employee, 
           linkTo(methodOn(CustomerController.class).retrieveCustomer(id)).withSelfRel(),
-          linkTo(methodOn(CustomerController.class).retrieveAllCustomers()).withRel("customers"));
+          linkTo(methodOn(CustomerController.class).fetchCustomersAsList()).withRel("customers"));
     }
 
 
