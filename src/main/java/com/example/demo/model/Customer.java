@@ -9,10 +9,10 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
   
 // class can be mapped to a table
-@Table(name = "employee")
+@Table(name = "customer")
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-public class Employee {
+public class Customer {
     
     // @ID This annotation specifies 
     // the primary key of the entity.
@@ -23,10 +23,10 @@ public class Employee {
     private String name;
     private String city;
     
-    public Employee() {
+    public Customer() {
         super();
     }
-    public Employee(String name, String city) {
+    public Customer(String name, String city) {
         super();
         this.name = name;
         this.city = city;

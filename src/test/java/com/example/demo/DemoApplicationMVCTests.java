@@ -10,7 +10,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
-import com.example.demo.model.Employee;
+import com.example.demo.model.Customer;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 
@@ -22,15 +22,15 @@ class DemoApplicationMVCTests {
 	private MockMvc mvc;
 
 	@Test
-	void testHello() throws Exception {
-		mvc.perform(MockMvcRequestBuilders.get("/v1/api/employees")).andExpect(status().isOk());
+	void testCustomers() throws Exception {
+		mvc.perform(MockMvcRequestBuilders.get("/v1/api/customers")).andExpect(status().isOk());
 	}
 
 	@Test
-	public void createEmployeeAPI() throws Exception {
+	public void createCustomer() throws Exception {
 		mvc.perform( MockMvcRequestBuilders
-				.post("/v1/api/employee/create")
-				.content(asJsonString(new Employee("Bill", "Venice")))
+				.post("/v1/api/customer/create")
+				.content(asJsonString(new Customer("Bill", "Venice")))
 				.contentType(MediaType.APPLICATION_JSON)
 				.accept(MediaType.APPLICATION_JSON))
 			.andExpect(status().is(406));
