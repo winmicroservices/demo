@@ -51,8 +51,9 @@ public class EmployeeController {
     public EntityModel<Employee> retrieveEmployee(@PathVariable long id) throws Exception {
         Employee employee = employeeRepository.getReferenceById(id);
 
-        if (employee == null)
+        if (employee == null) {
             throw new Exception("No id-" + id);
+        }
             
         return EntityModel.of(employee, 
           linkTo(methodOn(EmployeeController.class).retrieveEmployee(id)).withSelfRel(),
@@ -62,7 +63,7 @@ public class EmployeeController {
     @RequestMapping(value = "/employee/create", method = RequestMethod.POST, consumes = "application/json")
     public EntityModel<Employee> saveEmployee(@RequestBody Employee employee) throws Exception {
         log.info("Saving employee {}",employee.getName());
-        Employee e = employeeRepository.save(employee);
-        return retrieveEmployee(e.getId());
+        Employee savedEmployee = employeeRepository.save(employee);
+        return retrieveEmployee(savedEmployee.getId());
     }
 }
