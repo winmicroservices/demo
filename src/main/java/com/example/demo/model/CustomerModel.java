@@ -7,6 +7,7 @@ import org.springframework.hateoas.RepresentationModel;
  * Entity to a pagination format
  */
 public class CustomerModel extends RepresentationModel<CustomerModel> {
+    
     private Long id;
     private String firstName;
     private String lastName;

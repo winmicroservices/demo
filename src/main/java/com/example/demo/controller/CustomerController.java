@@ -41,6 +41,18 @@ public class CustomerController {
     @Autowired
     private PagedResourcesAssembler<Customer> pagedResourcesAssembler;
 
+    @GetMapping("/api/v1/customer/{id}")
+    public EntityModel<Customer> retrieveCustomer(@PathVariable long id) throws Exception {
+        Customer employee = customerService.getCustomer(id);
+
+        if (employee == null) {
+            throw new Exception("No id-" + id);
+        }
+            
+        return EntityModel.of(employee, 
+          linkTo(methodOn(CustomerController.class).retrieveCustomer(id)).withSelfRel(),
+          linkTo(methodOn(CustomerController.class).retrieveAllEmployees()).withRel("customers"));
+    }
 
     @GetMapping("/api/v0/customers")
     public CollectionModel<EntityModel<Customer>> retrieveAllEmployees() {
@@ -57,15 +69,7 @@ public class CustomerController {
         }
         return CollectionModel.of(items, linkTo(methodOn(CustomerController.class).retrieveAllEmployees()).withSelfRel());
     }
-
-    // /**
-    //  * @return List of all customers
-    //  */
-    // @GetMapping("/api/v0/customers")
-    // public List<Customer> fetchCustomersAsList() {
-    //     return customerService.fetchCustomerDataAsList();
-    // }
-
+    
     /**
      * @param firstNameFilter Filter for the first Name if required
      * @param lastNameFilter  Filter for the last Name if required
@@ -128,23 +132,19 @@ public class CustomerController {
             @RequestParam(defaultValue = "30") int size,
             @RequestParam(defaultValue = "") List<String> sortList,
             @RequestParam(defaultValue = "DESC") Sort.Direction sortOrder) {
-        Page<Customer> customerPage = customerService.fetchCustomerDataAsPageWithFilteringAndSorting(firstNameFilter, lastNameFilter, page, size, sortList, sortOrder.toString());
+        Page<Customer> customerPage = customerService.fetchCustomerDataAsPageWithFilteringAndSorting(firstNameFilter, 
+                                                                                                    lastNameFilter, 
+                                                                                                    page, 
+                                                                                                    size, 
+                                                                                                    sortList, 
+                                                                                                    sortOrder.toString());
         // Use the pagedResourcesAssembler and customerModelAssembler to convert data to PagedModel format
-        return pagedResourcesAssembler.toModel(customerPage, customerModelAssembler);
-    }
-
-    @GetMapping("/api/v1/customer/{id}")
-    public EntityModel<Customer> retrieveCustomer(@PathVariable long id) throws Exception {
-        Customer employee = customerService.getCustomer(id);
-
-        if (employee == null) {
-            throw new Exception("No id-" + id);
-        }
             
-        return EntityModel.of(employee, 
-          linkTo(methodOn(CustomerController.class).retrieveCustomer(id)).withSelfRel(),
-          linkTo(methodOn(CustomerController.class).retrieveAllEmployees()).withRel("customers"));
+        PagedModel<CustomerModel> pagedModel = pagedResourcesAssembler.toModel(customerPage, customerModelAssembler);
+
+        return pagedModel;
     }
+
 
 
     @RequestMapping(value = "/api/v1/customer/create", method = RequestMethod.POST, consumes = "application/json")
