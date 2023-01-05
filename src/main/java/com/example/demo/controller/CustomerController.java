@@ -42,10 +42,10 @@ public class CustomerController {
     private PagedResourcesAssembler<Customer> pagedResourcesAssembler;
 
 
-    @GetMapping("/employees")
+    @GetMapping("/api/v0/customers")
     public CollectionModel<EntityModel<Customer>> retrieveAllEmployees() {
         List<EntityModel<Customer>> items = customerService.fetchCustomerDataAsList().stream().map(item -> EntityModel.of(item,
-                linkTo(methodOn(CustomerController.class).fetchCustomersAsList()).withRel("customers")))
+                linkTo(methodOn(CustomerController.class).retrieveAllEmployees()).withRel("customers")))
                 .collect(Collectors.toList());
         for(EntityModel<Customer> em : items) {
             Customer customer = em.getContent();
@@ -58,13 +58,13 @@ public class CustomerController {
         return CollectionModel.of(items, linkTo(methodOn(CustomerController.class).retrieveAllEmployees()).withSelfRel());
     }
 
-    /**
-     * @return List of all customers
-     */
-    @GetMapping("/api/v0/customers")
-    public List<Customer> fetchCustomersAsList() {
-        return customerService.fetchCustomerDataAsList();
-    }
+    // /**
+    //  * @return List of all customers
+    //  */
+    // @GetMapping("/api/v0/customers")
+    // public List<Customer> fetchCustomersAsList() {
+    //     return customerService.fetchCustomerDataAsList();
+    // }
 
     /**
      * @param firstNameFilter Filter for the first Name if required
@@ -143,7 +143,7 @@ public class CustomerController {
             
         return EntityModel.of(employee, 
           linkTo(methodOn(CustomerController.class).retrieveCustomer(id)).withSelfRel(),
-          linkTo(methodOn(CustomerController.class).fetchCustomersAsList()).withRel("customers"));
+          linkTo(methodOn(CustomerController.class).retrieveAllEmployees()).withRel("customers"));
     }
 
 
