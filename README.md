@@ -26,9 +26,9 @@ mvn -Pnative spring-boot:build-image
 This is a sample http POST for creating a customer.
 
 ```
-curl -X POST http://localhost:8080/v1/api/customer/create \
+curl -X POST http://localhost:8080/api/v1/customer/create \
    -H 'Content-Type: application/json' \
-   -d '{"name":"Bill Polinchak","city":"Venice"}'
+   -d '{"firstName":"Bill","lastName":"Polinchak","city":"Venice"}'
 ```
 
 ### Get Customer
@@ -36,5 +36,13 @@ curl -X POST http://localhost:8080/v1/api/customer/create \
 This is a sample http GET for retreiving a customer.
 
 ```
-curl http://localhost:8080/v1/api/customer/1
+curl http://localhost:8080/api/v1/customer/1
+```
+
+### Get Customers
+
+This is a sample http GET for retreving a list of customers.
+
+```
+curl http://localhost:8080/api/v4/customers?page=0&size=10
 ```
