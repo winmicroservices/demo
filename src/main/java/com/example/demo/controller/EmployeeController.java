@@ -31,7 +31,7 @@ public class EmployeeController {
     EmployeeRepository employeeRepository;
 
     @GetMapping("/employees")
-    CollectionModel<EntityModel<Employee>> retrieveAllEmployees() {
+    public CollectionModel<EntityModel<Employee>> retrieveAllEmployees() {
         List<EntityModel<Employee>> items = employeeRepository.findAll().stream().map(item -> EntityModel.of(item,
                 linkTo(methodOn(EmployeeController.class).retrieveAllEmployees()).withRel("employees")))
                 .collect(Collectors.toList());
