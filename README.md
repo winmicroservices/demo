@@ -21,20 +21,20 @@ mvn -Pnative spring-boot:build-image
 
 ## APIs
 
-### Create Employee
+### Create Customer
 
-This is a sample http POST for creating an employee.
+This is a sample http POST for creating a customer.
 
 ```
-curl -X POST http://localhost:8080/v1/api/employee/create \
+curl -X POST http://localhost:8080/v1/api/customer/create \
    -H 'Content-Type: application/json' \
    -d '{"name":"Bill Polinchak","city":"Venice"}'
 ```
 
-### Get Employee
+### Get Customer
 
-This is a sample http GET for retreiving an employee.
+This is a sample http GET for retreiving a customer.
 
 ```
-curl http://localhost:8080/v1/api/employee/1
+curl http://localhost:8080/v1/api/customer/1
 ```

@@ -9,10 +9,10 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
   
 // class can be mapped to a table
-@Table(name = "employee")
+@Table(name = "customer")
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-public class Employee {
+public class Customer {
     
     // @ID This annotation specifies 
     // the primary key of the entity.
@@ -20,42 +20,54 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.AUTO) 
     private long id;
 
-    private String name;
+    private String firstName;
+    private String lastName;
+
+    
     private String city;
     
-    public Employee() {
+    public Customer() {
         super();
     }
-    public Employee(String name, String city) {
+    public Customer(String firstName, String lastName, String city) {
         super();
-        this.name = name;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.city = city;
     }
 
     public long getId() {
         return this.id;
     }
-
+    
     public void setId(long id) {
         this.id = id;
     }
-  
-    public String getName() {
-        return name;
+    
+    public String getFirstName() {
+        return firstName;
     }
   
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String name) {
+        this.firstName = name;
     }
-  
+    
+    public String getLastName() {
+        return this.lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
     public String getCity() {
         return city;
     }
-  
+    
     public void setCity(String city) {
         this.city = city;
     }
-
+    
     
   
 }
