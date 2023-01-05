@@ -1,3 +1,35 @@
+# [2.2.0](https://github.com/winmicroservices/demo/compare/v2.1.3...v2.2.0) (2023-01-05)
+
+
+### Bug Fixes
+
+* [#25](https://github.com/winmicroservices/demo/issues/25) Changing the post api url and adding examples to the readme. ([3ca3fcf](https://github.com/winmicroservices/demo/commit/3ca3fcfe468c02ed831448a519a0a361b00e23d1))
+* [#25](https://github.com/winmicroservices/demo/issues/25) I fixed the get test. ([402e1d8](https://github.com/winmicroservices/demo/commit/402e1d84a6f290c133e268fa188d80c09a51ddb9))
+* [#25](https://github.com/winmicroservices/demo/issues/25) I have a self link working. ([1f877d0](https://github.com/winmicroservices/demo/commit/1f877d0609aefbe077f983438d969b12d2e00ae1))
+* [#25](https://github.com/winmicroservices/demo/issues/25) Improved the employees link. ([c6ec2f6](https://github.com/winmicroservices/demo/commit/c6ec2f649a8159552147c925f8f69e9035798437))
+* [#25](https://github.com/winmicroservices/demo/issues/25) Organizing imports. ([17ea839](https://github.com/winmicroservices/demo/commit/17ea839f6cbfc801d3e6674d2b3c17c364636227))
+* [#25](https://github.com/winmicroservices/demo/issues/25) Refactor some variable names. ([9e5192e](https://github.com/winmicroservices/demo/commit/9e5192eaa9c6993ae2b5a2ae1b7a76849721a718))
+* [#25](https://github.com/winmicroservices/demo/issues/25) Remove the hateos version override. ([9efb5b2](https://github.com/winmicroservices/demo/commit/9efb5b291ae636d85f31651dcc59eb74b68b79fe))
+* [#25](https://github.com/winmicroservices/demo/issues/25) Remove the old get method. ([f82f08f](https://github.com/winmicroservices/demo/commit/f82f08f1b120f0489b5794986b1d9a6e55058c6d))
+* [#25](https://github.com/winmicroservices/demo/issues/25) Remove the Optional import. ([478da1a](https://github.com/winmicroservices/demo/commit/478da1aad0d14d75e753f52a1b9e1dbed80b4fb8))
+* [#25](https://github.com/winmicroservices/demo/issues/25) Removed comment. ([f7bb446](https://github.com/winmicroservices/demo/commit/f7bb44618e0de8173a9689922d17d4f513695f49))
+* [#25](https://github.com/winmicroservices/demo/issues/25) Removed extra code. ([42647a9](https://github.com/winmicroservices/demo/commit/42647a98b91de3cf08ba089e8b1b2ecbff36031e))
+* [#25](https://github.com/winmicroservices/demo/issues/25) retrieveAllEmployees should be a public method. ([c0c017c](https://github.com/winmicroservices/demo/commit/c0c017cba2ea91e52d4df5a6880314d5b1dee473))
+* [#25](https://github.com/winmicroservices/demo/issues/25) The list links are working. ([b2fdcd1](https://github.com/winmicroservices/demo/commit/b2fdcd1808336901d32f89a0a304f85e3708ef58))
+* [#25](https://github.com/winmicroservices/demo/issues/25) The post test has been added back.  It still needs some work because its getting a 406. ([6f3e775](https://github.com/winmicroservices/demo/commit/6f3e775e4fbf7595c5d3a8dc0c866319b9eb9e4b))
+* [#25](https://github.com/winmicroservices/demo/issues/25) The post will return the hateos savvy employee link. ([5b83b69](https://github.com/winmicroservices/demo/commit/5b83b69d9aed0c6b2d847fc93a518b3569a697c7))
+* [#25](https://github.com/winmicroservices/demo/issues/25) Working on the tests. ([6a24b94](https://github.com/winmicroservices/demo/commit/6a24b944ce08000da6558e2ce9d77cc080dd46df))
+* Add hateos links [#25](https://github.com/winmicroservices/demo/issues/25) ([b03a931](https://github.com/winmicroservices/demo/commit/b03a9315aac7ac39527dbe995bbf1ece31479831))
+* Add hateos links [#25](https://github.com/winmicroservices/demo/issues/25).  Added a get all Hateos method. ([03a030d](https://github.com/winmicroservices/demo/commit/03a030d624d4f09b78841679242a3c927cbeaf71))
+
+
+### Features
+
+* [#25](https://github.com/winmicroservices/demo/issues/25) Adding Jacoco test coverage. ([fd99f62](https://github.com/winmicroservices/demo/commit/fd99f62f9849da58d5724c1b92ddf50008a29a02))
+* [#25](https://github.com/winmicroservices/demo/issues/25) Run jacoco reports. ([16d9eab](https://github.com/winmicroservices/demo/commit/16d9eabd9393ac4f5307ad4d228d17c9b8eadf14))
+
+
+
 ## [2.1.3](https://github.com/winmicroservices/demo/compare/v2.1.2...v2.1.3) (2022-12-22)
 
 
@@ -77,15 +109,6 @@
 ### Features
 
 * Clean up some more things in the pom.xml. ([d4f5095](https://github.com/winmicroservices/demo/commit/d4f5095d6309b2c4c3a06cf7dcdc958f999742e1))
-
-
-
-# [2.0.0](https://github.com/winmicroservices/demo/compare/v1.0.0...v2.0.0) (2022-12-06)
-
-
-### Bug Fixes
-
-* The change log is randomly breaking [#17](https://github.com/winmicroservices/demo/issues/17).  Upgrading the change log to version 3.18.0. ([574dc84](https://github.com/winmicroservices/demo/commit/574dc846807154fee342e9adfa3b2b9b24a95de6))
 
 
 
