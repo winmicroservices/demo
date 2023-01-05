@@ -111,10 +111,10 @@ public class CustomerController {
         return pagedResourcesAssembler.toModel(customerPage, customerModelAssembler);
     }
 
-    @GetMapping("/customer/{id}")
+    @GetMapping("/api/v1/customer/{id}")
     public EntityModel<Customer> retrieveCustomer(@PathVariable long id) throws Exception {
         Customer employee = customerService.getCustomer(id);
-        
+
         if (employee == null) {
             throw new Exception("No id-" + id);
         }
@@ -125,7 +125,7 @@ public class CustomerController {
     }
 
 
-    @RequestMapping(value = "/customer/create", method = RequestMethod.POST, consumes = "application/json")
+    @RequestMapping(value = "/api/v1/customer/create", method = RequestMethod.POST, consumes = "application/json")
     public EntityModel<Customer> saveCustomer(@RequestBody Customer customer) throws Exception {
         log.info("Saving customer {}",customer.getFirstName());
         Customer savedEmployee = customerService.saveCustomer(customer);
