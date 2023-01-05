@@ -36,11 +36,11 @@ public class EmployeeController {
                 linkTo(methodOn(EmployeeController.class).retrieveAllEmployees()).withRel("employees")))
                 .collect(Collectors.toList());
         for(EntityModel<Employee> em : items) {
-            Employee e = em.getContent();
+            Employee employee = em.getContent();
             try {
-                em.add(linkTo(methodOn(EmployeeController.class).retrieveEmployee(e.getId())).withSelfRel());
-            } catch (Exception e1) {
-                log.error(e1.getMessage());
+                em.add(linkTo(methodOn(EmployeeController.class).retrieveEmployee(employee.getId())).withSelfRel());
+            } catch (Exception e) {
+                log.error(e.getMessage());
             }
         }
         return CollectionModel.of(items, linkTo(methodOn(EmployeeController.class).retrieveAllEmployees()).withSelfRel());
