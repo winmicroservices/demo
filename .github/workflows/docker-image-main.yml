@@ -15,7 +15,7 @@ jobs:
           java-version: '17'
           distribution: 'adopt'
       - name: Run Tests 
-        run: mvn test
+        run: mvn clean test jacoco:report
   push_to_registry:
     name: Push Docker image to Docker Hub
     needs: test
