@@ -8,7 +8,6 @@ import org.springframework.hateoas.RepresentationModel;
  */
 public class CustomerModel extends RepresentationModel<CustomerModel> {
     private Long id;
-    private String customerId;
     private String firstName;
     private String lastName;
 
@@ -18,14 +17,6 @@ public class CustomerModel extends RepresentationModel<CustomerModel> {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getCustomerId() {
-        return customerId;
-    }
-
-    public void setCustomerId(String customerId) {
-        this.customerId = customerId;
     }
 
     public String getFirstName() {
