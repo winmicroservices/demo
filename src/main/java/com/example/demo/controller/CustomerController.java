@@ -1,6 +1,10 @@
 package com.example.demo.controller;
 
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
+
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PagedResourcesAssembler;
+import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.PagedModel;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,9 +22,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
-import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 import com.example.demo.model.Customer;
 import com.example.demo.model.CustomerModel;
@@ -38,6 +40,23 @@ public class CustomerController {
 
     @Autowired
     private PagedResourcesAssembler<Customer> pagedResourcesAssembler;
+
+
+    @GetMapping("/employees")
+    public CollectionModel<EntityModel<Customer>> retrieveAllEmployees() {
+        List<EntityModel<Customer>> items = customerService.fetchCustomerDataAsList().stream().map(item -> EntityModel.of(item,
+                linkTo(methodOn(CustomerController.class).fetchCustomersAsList()).withRel("customers")))
+                .collect(Collectors.toList());
+        for(EntityModel<Customer> em : items) {
+            Customer customer = em.getContent();
+            try {
+                em.add(linkTo(methodOn(CustomerController.class).retrieveCustomer(customer.getId())).withSelfRel());
+            } catch (Exception e) {
+                log.error(e.getMessage());
+            }
+        }
+        return CollectionModel.of(items, linkTo(methodOn(CustomerController.class).retrieveAllEmployees()).withSelfRel());
+    }
 
     /**
      * @return List of all customers
