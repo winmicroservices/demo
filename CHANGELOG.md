@@ -1,3 +1,21 @@
+## [2.2.1](https://github.com/winmicroservices/demo/compare/v2.2.0...v2.2.1) (2023-01-05)
+
+
+### Bug Fixes
+
+*  [#28](https://github.com/winmicroservices/demo/issues/28) Adding lastname field. ([57accef](https://github.com/winmicroservices/demo/commit/57accef5efd5dcc002548a6703c91be1942287ad))
+*  [#28](https://github.com/winmicroservices/demo/issues/28) API links have changed. ([32c3940](https://github.com/winmicroservices/demo/commit/32c3940deff572757e23e3f5b0a4fdacd1a2978b))
+*  [#28](https://github.com/winmicroservices/demo/issues/28) Updating readme to reflect change to customer model. ([f06ef1c](https://github.com/winmicroservices/demo/commit/f06ef1c8442713b517852a7fc913058dc18bb40f))
+* [#28](https://github.com/winmicroservices/demo/issues/28) Adding links to customers apis. ([e5361a1](https://github.com/winmicroservices/demo/commit/e5361a1853c963709945ecb71a581148c5a594b4))
+* [#28](https://github.com/winmicroservices/demo/issues/28) Removed the customerId. ([fb85f8a](https://github.com/winmicroservices/demo/commit/fb85f8a1d6fbaa479327a01c427b27088dc75404))
+* [#28](https://github.com/winmicroservices/demo/issues/28) Set the app to update the db only. ([97040cc](https://github.com/winmicroservices/demo/commit/97040ccd6cfac56a2512518dc8c8c1ba00639a0e))
+* [#28](https://github.com/winmicroservices/demo/issues/28) The create customer is working. ([617037d](https://github.com/winmicroservices/demo/commit/617037d55cc9c908647c030ed7be9c489da4c9ab))
+* [#28](https://github.com/winmicroservices/demo/issues/28) The self link was added to the link in the list. ([36fef94](https://github.com/winmicroservices/demo/commit/36fef94232a9f483318531a69835417b33b87bbf))
+* [#28](https://github.com/winmicroservices/demo/issues/28) Use the link for v4. ([baf022c](https://github.com/winmicroservices/demo/commit/baf022cfe280fa05ec1b53a1aee5a254ec71ca1c))
+* [#28](https://github.com/winmicroservices/demo/issues/28) Working on the hatoes links. ([758a2db](https://github.com/winmicroservices/demo/commit/758a2db5469bac20c0fa3f83a82cc509adfb2f6f))
+
+
+
 # [2.2.0](https://github.com/winmicroservices/demo/compare/v2.1.3...v2.2.0) (2023-01-05)
 
 
@@ -89,26 +107,6 @@
 ### Bug Fixes
 
 * Adding link to Springboot support. ([dcfcaf7](https://github.com/winmicroservices/demo/commit/dcfcaf79107bf82ce7a0ecca9595bed61f923b48))
-
-
-
-# [2.1.0](https://github.com/winmicroservices/demo/compare/v2.0.0...v2.1.0) (2022-12-08)
-
-
-### Bug Fixes
-
-* [#19](https://github.com/winmicroservices/demo/issues/19) Add dependency for main pipeline. ([b015e08](https://github.com/winmicroservices/demo/commit/b015e0851776671a2db5e05c9994110879871c60))
-* [#19](https://github.com/winmicroservices/demo/issues/19) Add dependency to the test job. ([67c98e1](https://github.com/winmicroservices/demo/commit/67c98e1e075dfbfc994438a3d5b5e68f0ebbfa16))
-* [#19](https://github.com/winmicroservices/demo/issues/19) Add some tests. ([f18f940](https://github.com/winmicroservices/demo/commit/f18f940efb69d7eb1b1da87ec915a6314d223e9c))
-* [#19](https://github.com/winmicroservices/demo/issues/19) Set up jdk 17 in the dev build pipeline. ([0989af9](https://github.com/winmicroservices/demo/commit/0989af90b1dd7e725902e0e5886bbe61d89eddd9))
-* [#19](https://github.com/winmicroservices/demo/issues/19) The test works locally. ([672af9e](https://github.com/winmicroservices/demo/commit/672af9e78879e224607a1d01ab67e17dddeea893))
-* Add some unit tests [#19](https://github.com/winmicroservices/demo/issues/19) ([2242389](https://github.com/winmicroservices/demo/commit/2242389e59180e941a853d078ce542c4ed8bf9c2))
-* Clean up some things in the pom.xml ([8821dfb](https://github.com/winmicroservices/demo/commit/8821dfb2ccbf960f511d4f80ec70713970c4d893))
-
-
-### Features
-
-* Clean up some more things in the pom.xml. ([d4f5095](https://github.com/winmicroservices/demo/commit/d4f5095d6309b2c4c3a06cf7dcdc958f999742e1))
 
 
 
