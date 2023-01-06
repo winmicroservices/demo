@@ -24,7 +24,7 @@ jobs:
           coverage_results_path: 'target/site/jacoco/jacoco.xml'
           coverage_report_title: 'Test coverage results'
           coverage_report_name: 'Test coverage results'
-          github_token: ${{ secrets.CHANGELOG_RELEASE }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
 
   build:
     runs-on: ubuntu-latest
