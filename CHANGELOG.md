@@ -1,3 +1,16 @@
+## [2.2.2](https://github.com/winmicroservices/demo/compare/v2.2.1...v2.2.2) (2023-01-06)
+
+
+### Bug Fixes
+
+* [#29](https://github.com/winmicroservices/demo/issues/29) Adding link to hatoes article in the readme. ([2a391b8](https://github.com/winmicroservices/demo/commit/2a391b88e9139b60689ba823708dcb154839539e))
+* [#29](https://github.com/winmicroservices/demo/issues/29) Adding search and sort example. ([87a9cc3](https://github.com/winmicroservices/demo/commit/87a9cc353557fd51a50d34bb6018daca82811086))
+* Publish Jacoco reports. [#29](https://github.com/winmicroservices/demo/issues/29) ([2c67ec0](https://github.com/winmicroservices/demo/commit/2c67ec0e74f395c4645c1145f43fe205b9689cbd))
+* Publish Jacoco reports. [#29](https://github.com/winmicroservices/demo/issues/29).  Put the path in quotes. ([c85ba53](https://github.com/winmicroservices/demo/commit/c85ba53dbe08cc59139a488ebf9b1ee5caa22086))
+* Publish Jacoco reports. [#29](https://github.com/winmicroservices/demo/issues/29).  Updating the readme to reflect changes in the api. ([e749930](https://github.com/winmicroservices/demo/commit/e749930c69637f96245340dd678c30ea09389d64))
+
+
+
 ## [2.2.1](https://github.com/winmicroservices/demo/compare/v2.2.0...v2.2.1) (2023-01-05)
 
 
@@ -98,15 +111,6 @@
 * Using the logger properly. ([4d68994](https://github.com/winmicroservices/demo/commit/4d6899432ec66c66e7abcfd14cd5ac062c8c1989))
 * Using the logger. ([8a44a40](https://github.com/winmicroservices/demo/commit/8a44a40f1f16932f49c304e8c3122c5a31e2d9e0))
 * We don't need to run the tests twice. ([09adbf7](https://github.com/winmicroservices/demo/commit/09adbf73ac8cd433754e8eab7ddde1c6da3825b5))
-
-
-
-## [2.1.1](https://github.com/winmicroservices/demo/compare/v2.1.0...v2.1.1) (2022-12-09)
-
-
-### Bug Fixes
-
-* Adding link to Springboot support. ([dcfcaf7](https://github.com/winmicroservices/demo/commit/dcfcaf79107bf82ce7a0ecca9595bed61f923b48))
 
 
 
