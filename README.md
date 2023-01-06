@@ -21,6 +21,11 @@ mvn -Pnative spring-boot:build-image
 
 ## APIs
 
+### Hatoes
+
+The rest apis in this example app follow the Hatoes link strategy.
+This [article](https://www.springcloud.io/post/2022-04/hateoas-spring-boot-and-jpa/#gsc.tab=0) has a description of how Hatoes works with SpringBoot.
+
 ### Create Customer
 
 This is a sample http POST for creating a customer.
