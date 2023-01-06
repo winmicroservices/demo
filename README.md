@@ -57,3 +57,4 @@ This is a sample http GET that performs a search and sort.
 ```
 curl http://localhost:8080/api/v4/customers?firstNameFilter=W&lastNameFilter=P&page=0&size=5&sortList=firstName&sortOrder=ASC
 ```
+
