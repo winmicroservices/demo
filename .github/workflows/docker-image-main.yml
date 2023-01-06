@@ -23,14 +23,6 @@ jobs:
           coverage_report_title: 'Test coverage results'
           coverage_report_name: 'Test coverage results'
           github_token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Add coverage to PR
-        id: jacoco
-        uses: madrapps/jacoco-report@v1.3
-        with:
-          paths: 'target/site/jacoco/jacoco.xml'
-          token: ${{ secrets.GITHUB_TOKEN }}
-          min-coverage-overall: 40
-          min-coverage-changed-files: 60
   push_to_registry:
     name: Push Docker image to Docker Hub
     needs: test
