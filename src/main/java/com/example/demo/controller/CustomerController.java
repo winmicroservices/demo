@@ -26,6 +26,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.model.Customer;
 import com.example.demo.model.CustomerModel;
 import com.example.demo.service.CustomerService;
+import com.example.demo.service.TopicProducer;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @RestController
 public class CustomerController {
@@ -34,6 +37,9 @@ public class CustomerController {
 
     @Autowired
     private CustomerService customerService;
+
+    @Autowired
+    private TopicProducer topicProducer;
 
     @Autowired
     private CustomerModelAssembler customerModelAssembler;
@@ -151,6 +157,12 @@ public class CustomerController {
     public EntityModel<Customer> saveCustomer(@RequestBody Customer customer) throws Exception {
         log.info("Saving customer {}",customer.getFirstName());
         Customer savedEmployee = customerService.saveCustomer(customer);
+        String kafkaMessage = CustomerController.asJsonString(savedEmployee);
+        topicProducer.send(kafkaMessage);
         return retrieveCustomer(savedEmployee.getId());
     }
+
+    public static String asJsonString(final Object obj) throws Exception {
+		return new ObjectMapper().writeValueAsString(obj);
+	}
 }

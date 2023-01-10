@@ -35,3 +35,6 @@ build/
 mvnw.cmd
 .mvn/wrapper/maven-wrapper.properties
 demo.log
+KafkaMagicConfig.db
+KafkaMagicConfig.db-shm
+KafkaMagicConfig.db-wal

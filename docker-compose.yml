@@ -18,7 +18,47 @@ services:
     tty: true
     volumes:
       - mysql-demo-volume:/var/lib/mysql
+  zookeeper:
+    image: docker.io/bitnami/zookeeper:latest
+    ports:
+      - "2181:2181"
+    volumes:
+      - "zookeeper_data:/bitnami"
+    environment:
+      - ALLOW_ANONYMOUS_LOGIN=yes
+  kafka:
+    image: docker.io/bitnami/kafka:latest
+    ports:
+      - "9092:9092"
+    volumes:
+      - "kafka_data:/bitnami"
+    environment:
+      - KAFKA_BROKER_ID=1
+      - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
+      - ALLOW_PLAINTEXT_LISTENER=yes
+      - KAFKA_LISTENER_SECURITY_PROTOCOL_MAP=PLAINTEXT:PLAINTEXT
+      - KAFKA_LISTENERS=PLAINTEXT://:9092
+      - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://kafka:9092
+    depends_on:
+      - zookeeper
+
+  magic:
+      image: "digitsy/kafka-magic"
+      ports:
+        - "81:80"
+      volumes:
+        - .:/config
+      environment:
+        KMAGIC_ALLOW_TOPIC_DELETE: "true"
+        KMAGIC_ALLOW_SCHEMA_DELETE: "true"
+        KMAGIC_CONFIG_STORE_TYPE: "file"
+        KMAGIC_CONFIG_STORE_CONNECTION: "Data Source=/config/KafkaMagicConfig.db;"
+        # KMAGIC_CONFIG_ENCRYPTION_KEY: "ENTER_YOUR_KEY_HERE"
 
 volumes:
   mysql-demo-volume:
+    external: true
+  zookeeper_data:
+    external: true
+  kafka_data:
     external: true
