@@ -26,6 +26,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.model.Customer;
 import com.example.demo.model.CustomerModel;
 import com.example.demo.service.CustomerService;
+import com.example.demo.service.TopicProducer;
 
 @RestController
 public class CustomerController {
@@ -34,6 +35,9 @@ public class CustomerController {
 
     @Autowired
     private CustomerService customerService;
+
+    @Autowired
+    private TopicProducer topicProducer;
 
     @Autowired
     private CustomerModelAssembler customerModelAssembler;
@@ -151,6 +155,7 @@ public class CustomerController {
     public EntityModel<Customer> saveCustomer(@RequestBody Customer customer) throws Exception {
         log.info("Saving customer {}",customer.getFirstName());
         Customer savedEmployee = customerService.saveCustomer(customer);
+        topicProducer.send("new customer added");
         return retrieveCustomer(savedEmployee.getId());
     }
 }
